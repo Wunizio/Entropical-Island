@@ -5,9 +5,11 @@ using UnityEngine;
 public class WorldGeneration : MonoBehaviour
 {
 
-    public float middlePosition;
+    //public float middlePosition;
     public GameObject cube;
-    public float speed;
+    //public float speed;
+    public int amount;
+    public float thiccness;
 
     private Vector3 targetPosition;
 
@@ -15,7 +17,7 @@ public class WorldGeneration : MonoBehaviour
     void Start()
     {
         //speed = 0.01f;
-        spawnWorld(20000);
+        spawnWorld(amount);
     }
 
     // Update is called once per frame
@@ -38,9 +40,9 @@ public class WorldGeneration : MonoBehaviour
             //float newX = 0 + 500 * Mathf.Cos(spawnX * Mathf.Deg2Rad) * Mathf.Sin(spawnY * Mathf.Deg2Rad);
             //float newY = 0 + 500 * Mathf.Sin(spawnX * Mathf.Deg2Rad) * Mathf.Sin(spawnY * Mathf.Deg2Rad);
             //float newZ = 0 + 500 * Mathf.Cos(spawnY * Mathf.Deg2Rad);
-            float newX = Random.Range(0, 100);
-            float newY = Random.Range(0, 100);
-            float newZ = Random.Range(0, 100);
+            float newX = Random.Range(0, thiccness);
+            float newY = Random.Range(0, thiccness);
+            float newZ = Random.Range(0, thiccness);
 
 
             //newObject.GetComponent<CubeScript>().targetPosition = new Vector3(newX, newY, newZ);
