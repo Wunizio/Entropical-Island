@@ -32,6 +32,7 @@ public class ShipController : MonoBehaviour
 
     void Start()
     {
+        FindObjectOfType<AudioManager>().PlayTrackAtIndex(0);
         screenCenter.x = Screen.width * 0.5f;
         screenCenter.y = Screen.height * 0.5f;
 
@@ -60,6 +61,28 @@ public class ShipController : MonoBehaviour
 
         transform.position += transform.forward * activeForwardSpeed * Time.deltaTime;
         transform.position += transform.right * activeStrafeSpeed * Time.deltaTime;
-        transform.position += transform.up * activeHoverSpeed * Time.deltaTime;    
+        transform.position += transform.up * activeHoverSpeed * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            FindObjectOfType<AudioManager>().VolumnUp();
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            FindObjectOfType<AudioManager>().VolumnDown();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            FindObjectOfType<AudioManager>().PlayPrevious();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            FindObjectOfType<AudioManager>().PlayNext();
+        }
     }
+
+   
 }
