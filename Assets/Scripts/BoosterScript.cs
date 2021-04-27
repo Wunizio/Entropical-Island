@@ -5,12 +5,31 @@ using UnityEngine;
 public class BoosterScript : MonoBehaviour
 {
 
+    public enum item
+    {
+        boost,
+        turnAround
+    }
+
+    public item effect;
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponent<ShipController>().boost();
-            Destroy(gameObject);
+
+            switch (effect)
+            {
+                case item.boost:
+                    other.GetComponent<ShipController>().boost();
+                    Destroy(gameObject);
+                    return;
+                case item.turnAround:
+                    other.GetComponent<ShipController>().spin();
+                    Destroy(gameObject);
+                    return;
+            }
         }
     }
 

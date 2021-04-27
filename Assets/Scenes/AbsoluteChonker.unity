@@ -423,7 +423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016032821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 50}
+  m_LocalPosition: {x: 0, y: 0, z: 150}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7332724156068955135}
@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveObjects:
+  - {fileID: 591763229792627704, guid: 3dd2b83233a1b0e40a0b765f1b65424c, type: 3}
   - {fileID: 5802703887797363681, guid: 2bd02998be79d9f4ab4cbfd3299a34aa, type: 3}
   objectiveTimer: 2
 --- !u!1 &1331839771

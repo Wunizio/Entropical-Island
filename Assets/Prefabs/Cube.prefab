@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1062341673402410370}
   - component: {fileID: -8599758241552759519}
   - component: {fileID: 1207316599225590087}
-  - component: {fileID: 9076303878416443256}
+  - component: {fileID: -5375752050446787658}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -291,7 +291,7 @@ MonoBehaviour:
         Tag07: 0
     m_SerializedVersion: 1
   m_SerializedVersion: 1
---- !u!114 &9076303878416443256
+--- !u!114 &-5375752050446787658
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,16 +300,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062341673402410371}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 810cdc66ebee6c845a0a046cf288ea94, type: 3}
+  m_Script: {fileID: 11500000, guid: a5cb3fae15a4d2e43bb899dea6accf31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.5
+  angleChange: 137.5
+  maxRadius: 200
+  radius: 0
+  theta: 0
   newX: 0
   newY: 0
   newZ: 0
-  spawnX: 0
-  spawnY: 0
-  speed: 70
-  min: 100
-  max: 350
-  speedDistance: 4500
+  speed: 0

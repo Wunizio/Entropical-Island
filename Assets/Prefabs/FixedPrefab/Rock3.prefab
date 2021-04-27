@@ -295,7 +295,7 @@ MonoBehaviour:
   newZ: 0
   spawnX: 0
   spawnY: 0
-  speed: 70
+  speed: 150
   min: 100
   max: 350
   speedDistance: 4500
