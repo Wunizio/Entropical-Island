@@ -6,6 +6,7 @@ public class ShipController : MonoBehaviour
 {
     //Movement
     public float forwardSpeed = 25f;
+    private float initialSpeed;
     public float strafeSpeed = 7.5f;
     public float hoverSpeed = 5f;
 
@@ -30,6 +31,11 @@ public class ShipController : MonoBehaviour
 
     private float rollInput;
 
+    private float boostTimer;
+    private bool isBoost;
+    private bool isSpin;
+    private float spinTimer;
+
     void Start()
     {
         FindObjectOfType<AudioManager>().PlayTrackAtIndex(0);
@@ -37,6 +43,7 @@ public class ShipController : MonoBehaviour
         screenCenter.y = Screen.height * 0.5f;
 
         Cursor.lockState = CursorLockMode.Confined;
+        initialSpeed = forwardSpeed;
     }
 
     void Update()
@@ -82,7 +89,47 @@ public class ShipController : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().PlayNext();
         }
+
+        if (isBoost)
+        {
+            if(boostTimer > 0)
+            {
+                boostTimer -= Time.deltaTime;
+            }
+            else
+            {
+                isBoost = false;
+                forwardSpeed = initialSpeed;
+            }
+        }
+
+        if (isSpin)
+        {
+            if (spinTimer > 0)
+            {
+                spinTimer -= Time.deltaTime;
+                this.transform.Rotate(180 * Time.deltaTime, 0, 0, Space.Self);
+            }
+            else
+            {
+                isSpin = false;
+            }
+            
+        }
+
     }
 
+    public void boost()
+    {
+        forwardSpeed *= 1.5f;
+        boostTimer += 5;
+        isBoost = true;
+    }
+
+    public void spin()
+    {
+        spinTimer = 2;
+        isSpin = true;
+    }
    
 }

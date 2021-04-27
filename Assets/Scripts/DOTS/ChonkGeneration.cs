@@ -2,6 +2,9 @@ using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
+using Unity.Jobs;
+using System.Collections.Generic;
+using Unity.Collections;
 
 /*public struct CubeJob : IJobParallelFor
 {
@@ -16,41 +19,49 @@ public class CubeManager : MonoBehaviour
 
 }*/
 
+
+
 public class ChonkGeneration : MonoBehaviour
 {
 
+
     //public float middlePosition;
-    public GameObject cube;
+    public GameObject[] cube;
     public int amount;
     public float cubeThiccness;
+    GameObjectConversionSettings settings;
+    EntityManager entitiyManager;
+    Unity.Mathematics.Random rand;
+    Entity[] prefab;
     //public float speed;
 
     private Vector3 targetPosition;
     private BlobAssetStore blobby;
-    private Unity.Mathematics.Random rand;
 
     // Start is called before the first frame update
     void Start()
     {
-        blobby = new BlobAssetStore();
-        var settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, blobby);
-        var prefab = GameObjectConversionUtility.ConvertGameObjectHierarchy(cube, settings);
-        var entitiyManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+        uint randomRange = (uint)UnityEngine.Random.Range(1, 10000000);
+        rand = new Unity.Mathematics.Random(randomRange);
 
-        rand = new Unity.Mathematics.Random(1);
+        blobby = new BlobAssetStore();
+        settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, blobby);
+        entitiyManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+
+        prefab = new Entity[cube.Length];
+
+
+       for(int x = 0; x < cube.Length; x++)
+        {
+            prefab[x] = GameObjectConversionUtility.ConvertGameObjectHierarchy(cube[x], settings);
+        }
+
         for (int x = 0; x < amount; x++)
         {
-            //
-            var instance = entitiyManager.Instantiate(prefab);
+           
+            var instance = entitiyManager.Instantiate(prefab[rand.NextInt(0, cube.Length)]);
+            
 
-
-
-            float newX = rand.NextFloat(0, cubeThiccness);
-            float newY = rand.NextFloat(0, cubeThiccness);
-            float newZ = rand.NextFloat(0, cubeThiccness);
-
-            var position = transform.TransformPoint(new float3(newX, newY, newZ));
-            entitiyManager.SetComponentData(instance, new Translation { Value = position });
         }
 
         //Destroy(cube);
