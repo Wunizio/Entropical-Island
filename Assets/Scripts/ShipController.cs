@@ -31,6 +31,12 @@ public class ShipController : MonoBehaviour
 
     private float rollInput;
 
+    //Colors of boosters
+    public GameObject boosterRedLeft;
+    public GameObject boosterRedRight;
+    public GameObject boosterBlueLeft;
+    public GameObject boosterBlueRight;
+
     private float boostTimer;
     private bool isBoost;
     private bool isSpin;
@@ -38,6 +44,12 @@ public class ShipController : MonoBehaviour
 
     void Start()
     {
+        //Is here just incase.
+        boosterRedLeft.SetActive(true);
+        boosterRedRight.SetActive(true);
+        boosterBlueLeft.SetActive(false);
+        boosterBlueRight.SetActive(false);
+
         FindObjectOfType<AudioManager>().PlayTrackAtIndex(0);
         screenCenter.x = Screen.width * 0.5f;
         screenCenter.y = Screen.height * 0.5f;
@@ -95,11 +107,19 @@ public class ShipController : MonoBehaviour
             if(boostTimer > 0)
             {
                 boostTimer -= Time.deltaTime;
+                boosterRedLeft.SetActive(false);
+                boosterRedRight.SetActive(false);
+                boosterBlueLeft.SetActive(true);
+                boosterBlueRight.SetActive(true);
             }
             else
             {
                 isBoost = false;
                 forwardSpeed = initialSpeed;
+                boosterRedLeft.SetActive(true);
+                boosterRedRight.SetActive(true);
+                boosterBlueLeft.SetActive(false);
+                boosterBlueRight.SetActive(false);
             }
         }
 
@@ -124,18 +144,12 @@ public class ShipController : MonoBehaviour
         forwardSpeed *= 1.5f;
         boostTimer += 5;
         isBoost = true;
-        ChangeBoosterColor();
     }
 
     public void spin()
     {
         spinTimer = 2;
         isSpin = true;
-    }
-
-    private void ChangeBoosterColor()
-    {
-
     }
    
 }
