@@ -7,6 +7,7 @@ public class GeneralManager : MonoBehaviour
 {
     public GameObject menu;
     public GameObject credits;
+    public GalaxyGenerator generator;
 
     private void Start()
     {
@@ -14,6 +15,7 @@ public class GeneralManager : MonoBehaviour
     }
     public void StartGame()
     {
+        generator.DestroyEntities();
         SceneManager.LoadScene("AbsoluteChonker");
     }
 

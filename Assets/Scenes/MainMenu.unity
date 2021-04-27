@@ -1010,6 +1010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 966225169}
   credits: {fileID: 1662487148}
+  generator: {fileID: 1022616503}
 --- !u!4 &819240215
 Transform:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class GalaxyGenerator : MonoBehaviour
     public float space;
     //public float speed;
 
+    private List<Entity> rocks;
     private Vector3 targetPosition;
     private BlobAssetStore blobby;
     private EntityManager entityManager;
@@ -25,7 +26,7 @@ public class GalaxyGenerator : MonoBehaviour
     {
 
 
-
+        rocks = new List<Entity>();
         blobby = new BlobAssetStore();
         var settings = GameObjectConversionSettings.FromWorld(World.DefaultGameObjectInjectionWorld, blobby);
         entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
@@ -44,6 +45,7 @@ public class GalaxyGenerator : MonoBehaviour
         {
             Value = position
         });
+        rocks.Add(myEntity);
 
     }
 
@@ -56,6 +58,15 @@ public class GalaxyGenerator : MonoBehaviour
                 InstantiateEntity(new float3(i * spacing, j * spacing, 0f));
             }
         }
+    }
+
+    public void DestroyEntities()
+    {
+        foreach (Entity ent in rocks)
+        {
+            entityManager.DestroyEntity(ent);
+        }
+        rocks.Clear();
     }
 
     private void OnDestroy()

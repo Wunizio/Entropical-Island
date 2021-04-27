@@ -35,12 +35,14 @@ public class ChonkGeneration : MonoBehaviour
     Entity[] prefab;
     //public float speed;
 
+    private List<Entity> rocks;
     private Vector3 targetPosition;
     private BlobAssetStore blobby;
 
     // Start is called before the first frame update
     void Start()
     {
+        rocks = new List<Entity>();
         uint randomRange = (uint)UnityEngine.Random.Range(1, 10000000);
         rand = new Unity.Mathematics.Random(randomRange);
 
@@ -60,11 +62,21 @@ public class ChonkGeneration : MonoBehaviour
         {
            
             var instance = entitiyManager.Instantiate(prefab[rand.NextInt(0, cube.Length)]);
+            rocks.Add(instance);
             
 
         }
 
         //Destroy(cube);
+    }
+
+    public void DestroyEntities()
+    {
+        foreach(Entity ent in rocks)
+        {
+            entitiyManager.DestroyEntity(ent);
+        }
+        rocks.Clear();
     }
 
     private void OnDestroy()

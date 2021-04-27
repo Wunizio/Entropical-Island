@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Entities;
 
 public class EdgeScript : MonoBehaviour
 {
 
     public float initRadius;
     public SphereCollider sphereCol;
+    public InGameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,16 @@ public class EdgeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sphereCol.radius += 35 * Time.deltaTime;
+        sphereCol.radius += 80 * Time.deltaTime;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+
+            gameManager.EndGame();
+            
+        }
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1923719527889316720}
   - component: {fileID: 3374888775467862628}
   - component: {fileID: 599411065392586667}
+  - component: {fileID: 6407332844972051452}
   m_Layer: 0
   m_Name: Rock8
   m_TagString: Untagged
@@ -155,3 +156,15 @@ MonoBehaviour:
   min: 100
   max: 350
   speedDistance: 150000
+--- !u!114 &6407332844972051452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923719527889316722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e9f6cb20fd16f4f8f8d29a37cba4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

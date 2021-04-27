@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4664106451774345639}
   - component: {fileID: 996745462052833540}
   - component: {fileID: 649545724743034501}
+  - component: {fileID: -1968778338263190261}
   m_Layer: 0
   m_Name: Rock10
   m_TagString: Untagged
@@ -155,3 +156,15 @@ MonoBehaviour:
   min: 100
   max: 350
   speedDistance: 150000
+--- !u!114 &-1968778338263190261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4664106451774345637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e9f6cb20fd16f4f8f8d29a37cba4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

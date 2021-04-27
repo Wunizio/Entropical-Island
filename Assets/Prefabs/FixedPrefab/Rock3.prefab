@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8555323106925570842}
   - component: {fileID: 8420987935352247674}
   - component: {fileID: 17512690734752605}
+  - component: {fileID: -1871122720979244586}
   m_Layer: 0
   m_Name: Rock3
   m_TagString: Untagged
@@ -299,3 +300,15 @@ MonoBehaviour:
   min: 100
   max: 350
   speedDistance: 150000
+--- !u!114 &-1871122720979244586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691382704638866389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8e9f6cb20fd16f4f8f8d29a37cba4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

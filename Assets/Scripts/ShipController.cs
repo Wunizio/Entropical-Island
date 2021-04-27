@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShipController : MonoBehaviour
 {
+
+    public InGameManager gameManager;
+
     //Movement
     public float forwardSpeed = 25f;
     private float initialSpeed;
@@ -100,6 +103,11 @@ public class ShipController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             FindObjectOfType<AudioManager>().PlayNext();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameManager.EndGame();
         }
 
         if (isBoost)
