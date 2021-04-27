@@ -151,7 +151,7 @@ MonoBehaviour:
   newZ: 0
   spawnX: 0
   spawnY: 0
-  speed: 150
+  speed: 160
   min: 100
   max: 350
-  speedDistance: 4500
+  speedDistance: 150000

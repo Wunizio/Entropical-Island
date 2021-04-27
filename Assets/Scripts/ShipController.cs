@@ -143,6 +143,10 @@ public class ShipController : MonoBehaviour
     {
         forwardSpeed *= 1.5f;
         boostTimer += 5;
+        if(boostTimer > 15)
+        {
+            boostTimer = 15;
+        }
         isBoost = true;
     }
 
