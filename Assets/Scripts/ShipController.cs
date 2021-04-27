@@ -124,12 +124,18 @@ public class ShipController : MonoBehaviour
         forwardSpeed *= 1.5f;
         boostTimer += 5;
         isBoost = true;
+        ChangeBoosterColor();
     }
 
     public void spin()
     {
         spinTimer = 2;
         isSpin = true;
+    }
+
+    private void ChangeBoosterColor()
+    {
+
     }
    
 }
